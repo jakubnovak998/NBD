@@ -1,0 +1,1 @@
+printjson(db.people.find({}, {_id: 0, first_name: 1, last_name: 1, "location.city": 1}).toArray())
