@@ -1,1 +1,1 @@
-printjson(db.people.find({}, {_id: 0, first_name: 1, last_name: 1, "location.city": 1}).toArray())
+printjson(db.people.find({}, {_id: 0, first_name: 1, last_name: 1, "location.city": { $cond: [{ $gt: ["$birth_date", ISODate("2001-01-01T00:00:00Z")] }, "$location.city", "$$REMOVE"]}}).toArray())
