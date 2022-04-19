@@ -4,7 +4,10 @@
         '_id': '$sex', 
         'height': {
           '$avg': '$height'
-        }
+        },
+        'weight': {
+          '$avg': '$weight'
+        },
       }
     }
   ]))
