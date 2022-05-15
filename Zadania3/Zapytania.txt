@@ -1,0 +1,62 @@
+Zbuduj następujące zapytania
+ 
+1.	Wszystkie filmy
+
+MATCH (movie:Movie)
+RETURN movie
+
+2.	Wszystkie filmy, w których grał Hugo Weaving 
+
+MATCH (actor:Person { name: 'Hugo Weaving' })-[:ACTED_IN]->(movie)
+RETURN actor, movie
+
+3.	Reżyserzy filmów, w których grał Hugo Weaving 
+
+MATCH (actor:Person { name: 'Hugo Weaving' })-[:ACTED_IN]->(movie)<-[:DIRECTED]-(director)
+RETURN  director
+
+4.	Wszystkie osoby, z którymi Hugo Weaving grał w tych samych filmach 
+
+MATCH (actorHugo:Person { name: 'Hugo Weaving' })-[:ACTED_IN]->(movie)<-[:ACTED_IN]-(otherActor)
+RETURN DISTINCT otherActor
+
+5.	Wszystkie filmy osób, które grały w Matrix
+
+MATCH (Movie { title: 'The Matrix' })<-[:ACTED_IN]-(actor)-[:ACTED_IN]->(movie)
+RETURN COLLECT(actor) AS Actors, movie
+
+6.	Listę aktorów (aktor = osoba, która grała przynajmniej w jednym filmie) wraz z ilością filmów, w których grali 
+
+MATCH (actor:Person)-[:ACTED_IN]->(movie) RETURN DISTINCT actor, count(movie)
+
+7.	Listę osób, które napisały scenariusz filmu, które wyreżyserowały wraz z tytułami takich filmów (koniunkcja – ten sam autor scenariusza i reżyser) 
+
+MATCH (person:Person)-[:WROTE]->(movie)<-[:DIRECTED]->(person)
+RETURN person, movie.title as title
+
+8.	Listę filmów, w których grał zarówno Hugo Weaving jak i Keanu Reeves
+
+MATCH (actorHugo:Person { name: 'Hugo Weaving' })-[:ACTED_IN]->(movie)<-[:ACTED_IN]-(actorKeanu:Person { name: 'Keanu Reeves' })
+RETURN movie
+ 
+9.	(za 0.2pkt) Zestaw zapytań powodujących uzupełnienie bazy danych o film Captain America: The First Avenger wraz z uzupełnieniem informacji o reżyserze, scenarzystach i odtwórcach głównych ról (w oparciu o skrócone informacje z IMDB - http://www.imdb.com/title/tt0458339/) + zapytanie pokazujące dodany do bazy film wraz odtwórcami głównych ról, scenarzystą i reżyserem. Plik SVG ma pokazywać wynik ostatniego zapytania.  
+
+Uwaga 1: W wypadku zadania 9 dopuszczalne jest wykorzystanie większej niż 1 ilości zapytań
+
+CREATE (movie:Movie { title: 'Captain America: The First Avenger', released: 2011 }),
+(Johnston:Person { name: 'Joe Johnston', born: 1950 })-[:DIRECTED]->(movie),
+(Markus:Person { name: 'Christopher Markus', born: 1970 })-[:WROTE]->(movie),
+(McFeely:Person { name: 'Stephen McFeely', born: 1969 })-[:WROTE]->(movie),
+(Simon:Person { name: 'Joe Simon', born: 1913 })-[:WROTE]->(movie),
+(Kirby:Person { name: 'Jack Kirby', born: 1917 })-[:WROTE]->(movie),
+(Evans:Person { name: 'Chris Evans', born: 1981 })-[:ACTED_IN { roles: ['Captain America','Steve Rogers'] }]->(movie),
+(Atwell:Person { name: 'Hayley Atwell', born: 1982 })-[:ACTED_IN{ roles: ['Peggy Carter'] }]->(movie),
+(Stan:Person { name: 'Sebastian Stan', born: 1982 })-[:ACTED_IN{ roles: ['James Buchanan \'Bucky\' Barnes'] }]->(movie),
+(LeeJones:Person { name: 'Tommy Lee Jones', born: 1946 })-[:ACTED_IN{ roles: ['Colonel Chester Phillips'] }]->(movie),(Weaving:Person { name: 'Hugo Weaving' })-[:ACTED_IN { roles : ['Johann Schmidt', 'Red Skull'] }]->(movie),
+(Cooper:Person { name: 'Dominic Cooper', born: 1978 })-[:ACTED_IN{ roles: ['Howard Stark'] }]->(movie),
+(Armitage:Person { name: 'Richard Armitage', born: 1971 })-[:ACTED_IN{ roles: ['Heinz Kruger'] }]->(movie),
+(Tucci:Person { name: 'Stanley Tucci', born: 1960 })-[:ACTED_IN{ roles: ['Dr. Abraham Erskine'] }]->(movie),
+(LJackson:Person { name: 'Samuel L. Jackson', born: 1948 })-[:ACTED_IN{ roles: ['Nick Fury'] }]->(movie),
+(Jones:Person { name: 'Toby Jones', born: 1966 })-[:ACTED_IN{ roles: ['Dr. Arnim Zola'] }]->(movie)
+MATCH (person:Person)-[related] - (movie:Movie { title: 'Captain America: The First Avenger' })
+RETURN DISTINCT person, movie, TYPE(related) AS type, related

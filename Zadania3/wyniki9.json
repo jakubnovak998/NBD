@@ -1,0 +1,503 @@
+﻿[
+  {
+    "person": {
+"identity": 47,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1966,
+"name": "Toby Jones"
+      }
+    },
+    "movie": {
+"identity": 27,
+"labels": [
+        "Movie"
+      ],
+"properties": {
+"title": "Captain America: The First Avenger",
+"released": 2011
+      }
+    },
+    "type": "ACTED_IN",
+    "related": {
+"identity": 29,
+"start": 47,
+"end": 27,
+"type": "ACTED_IN",
+"properties": {
+"roles": [
+          "Dr. Arnim Zola"
+        ]
+      }
+    }
+  },
+  {
+    "person": {
+"identity": 45,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1948,
+"name": "Samuel L. Jackson"
+      }
+    },
+    "movie": {
+"identity": 27,
+"labels": [
+        "Movie"
+      ],
+"properties": {
+"title": "Captain America: The First Avenger",
+"released": 2011
+      }
+    },
+    "type": "ACTED_IN",
+    "related": {
+"identity": 28,
+"start": 45,
+"end": 27,
+"type": "ACTED_IN",
+"properties": {
+"roles": [
+          "Nick Fury"
+        ]
+      }
+    }
+  },
+  {
+    "person": {
+"identity": 43,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1960,
+"name": "Stanley Tucci"
+      }
+    },
+    "movie": {
+"identity": 27,
+"labels": [
+        "Movie"
+      ],
+"properties": {
+"title": "Captain America: The First Avenger",
+"released": 2011
+      }
+    },
+    "type": "ACTED_IN",
+    "related": {
+"identity": 27,
+"start": 43,
+"end": 27,
+"type": "ACTED_IN",
+"properties": {
+"roles": [
+          "Dr. Abraham Erskine"
+        ]
+      }
+    }
+  },
+  {
+    "person": {
+"identity": 42,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1971,
+"name": "Richard Armitage"
+      }
+    },
+    "movie": {
+"identity": 27,
+"labels": [
+        "Movie"
+      ],
+"properties": {
+"title": "Captain America: The First Avenger",
+"released": 2011
+      }
+    },
+    "type": "ACTED_IN",
+    "related": {
+"identity": 26,
+"start": 42,
+"end": 27,
+"type": "ACTED_IN",
+"properties": {
+"roles": [
+          "Heinz Kruger"
+        ]
+      }
+    }
+  },
+  {
+    "person": {
+"identity": 41,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1978,
+"name": "Dominic Cooper"
+      }
+    },
+    "movie": {
+"identity": 27,
+"labels": [
+        "Movie"
+      ],
+"properties": {
+"title": "Captain America: The First Avenger",
+"released": 2011
+      }
+    },
+    "type": "ACTED_IN",
+    "related": {
+"identity": 25,
+"start": 41,
+"end": 27,
+"type": "ACTED_IN",
+"properties": {
+"roles": [
+          "Howard Stark"
+        ]
+      }
+    }
+  },
+  {
+    "person": {
+"identity": 40,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"name": "Hugo Weaving"
+      }
+    },
+    "movie": {
+"identity": 27,
+"labels": [
+        "Movie"
+      ],
+"properties": {
+"title": "Captain America: The First Avenger",
+"released": 2011
+      }
+    },
+    "type": "ACTED_IN",
+    "related": {
+"identity": 24,
+"start": 40,
+"end": 27,
+"type": "ACTED_IN",
+"properties": {
+"roles": [
+          "Johann Schmidt",
+          "Red Skull"
+        ]
+      }
+    }
+  },
+  {
+    "person": {
+"identity": 39,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1946,
+"name": "Tommy Lee Jones"
+      }
+    },
+    "movie": {
+"identity": 27,
+"labels": [
+        "Movie"
+      ],
+"properties": {
+"title": "Captain America: The First Avenger",
+"released": 2011
+      }
+    },
+    "type": "ACTED_IN",
+    "related": {
+"identity": 23,
+"start": 39,
+"end": 27,
+"type": "ACTED_IN",
+"properties": {
+"roles": [
+          "Colonel Chester Phillips"
+        ]
+      }
+    }
+  },
+  {
+    "person": {
+"identity": 38,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1982,
+"name": "Sebastian Stan"
+      }
+    },
+    "movie": {
+"identity": 27,
+"labels": [
+        "Movie"
+      ],
+"properties": {
+"title": "Captain America: The First Avenger",
+"released": 2011
+      }
+    },
+    "type": "ACTED_IN",
+    "related": {
+"identity": 22,
+"start": 38,
+"end": 27,
+"type": "ACTED_IN",
+"properties": {
+"roles": [
+          "James Buchanan 'Bucky' Barnes"
+        ]
+      }
+    }
+  },
+  {
+    "person": {
+"identity": 36,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1982,
+"name": "Hayley Atwell"
+      }
+    },
+    "movie": {
+"identity": 27,
+"labels": [
+        "Movie"
+      ],
+"properties": {
+"title": "Captain America: The First Avenger",
+"released": 2011
+      }
+    },
+    "type": "ACTED_IN",
+    "related": {
+"identity": 21,
+"start": 36,
+"end": 27,
+"type": "ACTED_IN",
+"properties": {
+"roles": [
+          "Peggy Carter"
+        ]
+      }
+    }
+  },
+  {
+    "person": {
+"identity": 34,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1981,
+"name": "Chris Evans"
+      }
+    },
+    "movie": {
+"identity": 27,
+"labels": [
+        "Movie"
+      ],
+"properties": {
+"title": "Captain America: The First Avenger",
+"released": 2011
+      }
+    },
+    "type": "ACTED_IN",
+    "related": {
+"identity": 20,
+"start": 34,
+"end": 27,
+"type": "ACTED_IN",
+"properties": {
+"roles": [
+          "Captain America",
+          "Steve Rogers"
+        ]
+      }
+    }
+  },
+  {
+    "person": {
+"identity": 33,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1917,
+"name": "Jack Kirby"
+      }
+    },
+    "movie": {
+"identity": 27,
+"labels": [
+        "Movie"
+      ],
+"properties": {
+"title": "Captain America: The First Avenger",
+"released": 2011
+      }
+    },
+    "type": "WROTE",
+    "related": {
+"identity": 19,
+"start": 33,
+"end": 27,
+"type": "WROTE",
+"properties": {
+
+      }
+    }
+  },
+  {
+    "person": {
+"identity": 32,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1913,
+"name": "Joe Simon"
+      }
+    },
+    "movie": {
+"identity": 27,
+"labels": [
+        "Movie"
+      ],
+"properties": {
+"title": "Captain America: The First Avenger",
+"released": 2011
+      }
+    },
+    "type": "WROTE",
+    "related": {
+"identity": 18,
+"start": 32,
+"end": 27,
+"type": "WROTE",
+"properties": {
+
+      }
+    }
+  },
+  {
+    "person": {
+"identity": 31,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1969,
+"name": "Stephen McFeely"
+      }
+    },
+    "movie": {
+"identity": 27,
+"labels": [
+        "Movie"
+      ],
+"properties": {
+"title": "Captain America: The First Avenger",
+"released": 2011
+      }
+    },
+    "type": "WROTE",
+    "related": {
+"identity": 17,
+"start": 31,
+"end": 27,
+"type": "WROTE",
+"properties": {
+
+      }
+    }
+  },
+  {
+    "person": {
+"identity": 30,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1970,
+"name": "Christopher Markus"
+      }
+    },
+    "movie": {
+"identity": 27,
+"labels": [
+        "Movie"
+      ],
+"properties": {
+"title": "Captain America: The First Avenger",
+"released": 2011
+      }
+    },
+    "type": "WROTE",
+    "related": {
+"identity": 16,
+"start": 30,
+"end": 27,
+"type": "WROTE",
+"properties": {
+
+      }
+    }
+  },
+  {
+    "person": {
+"identity": 28,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1950,
+"name": "Joe Johnston"
+      }
+    },
+    "movie": {
+"identity": 27,
+"labels": [
+        "Movie"
+      ],
+"properties": {
+"title": "Captain America: The First Avenger",
+"released": 2011
+      }
+    },
+    "type": "DIRECTED",
+    "related": {
+"identity": 15,
+"start": 28,
+"end": 27,
+"type": "DIRECTED",
+"properties": {
+
+      }
+    }
+  }
+]
