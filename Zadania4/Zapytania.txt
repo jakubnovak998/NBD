@@ -1,0 +1,59 @@
+1.Znajdź trasy którymi można dostać się z Darjeeling na
+Sandakphu, mające najmniejszą ilość etapów 
+
+MATCH path = ShortestPath((start:town{name: "Darjeeling"})-[*]-(end:peak { name:"Sandakphu" }))RETURN path
+
+2.Znajdź mające najmniej etapów trasy którymi można dostać się z Darjeeling na Sandakphu i które mogą być wykorzystywane zimą 
+
+MATCH path = ShortestPath((start:town{name: "Darjeeling"})-[*]-(end:peak { name:"Sandakphu" }))
+WHERE ALL (route IN relationships(path) WHERE route.winter = 'true')
+RETURN path as winterPath
+
+3.Uszereguj trasy którymi można dostać się z Darjeeling na Sandakphu według dystansu 
+
+MATCH path = (start:town { name: 'Darjeeling' })-[*]->(end:peak { name: 'Sandakphu' })
+WITH path, reduce(totalDistance = 0, route IN relationships(path) | totalDistance + route.distance) AS distance
+RETURN path, distance ORDER BY distance
+
+4.Znajdź wszystkie miejsca do których można dotrzeć przy pomocy roweru (twowheeler) z Darjeeling latem
+
+MATCH path = (:town { name: 'Darjeeling' })-[*]->(to)
+WHERE ALL (route IN relationships(path) WHERE route.summer='true' and type(route) = 'twowheeler')
+RETURN DISTINCT to.name AS place
+
+5.Uszereguj porty lotnicze według ilości rozpoczynających się w nich lotów
+
+match (flight:Flight)-[:ORIGIN]->(airport:Airport)
+return airport,count(flight) as flights order by flights
+
+6.Znajdź wszystkie porty lotnicze, do których da się dolecieć (bezpośrednio lub z przesiadkami) z Los Angeles (LAX) wydając mniej niż 3000 
+
+MATCH flight = (origin:Airport { name:"LAX" })<-[r1:ORIGIN]-(:Flight)-[r2:ORIGIN|DESTINATION*..10]->(destination:Airport {name: "DAY"})
+WITH flight, REDUCE(acc = 0, n IN [x IN NODES(flight) WHERE 'Flight' IN LABELS(x)] | acc + [(n)<-[:ASSIGN]-(ticket) | ticket.price][0]) as price
+RETURN flight, price
+ORDER BY price DESC
+
+7.Uszereguj połączenia, którymi można dotrzeć z Los Angeles (LAX) do Dayton (DAY) według ceny biletów 
+
+MATCH flight= (:Airport { name: 'LAX' })-[*]->(:Airport { name: 'DAY' })
+WITH flight, reduce(totalPrice = 0, flight IN relationships(flight) | totalPrice + flight.price) AS totalPrice
+RETURN flight, totalPrice ORDER BY totalPrice ASC
+
+8.Znajdź najtańsze połączenie z Los Angeles (LAX) do Dayton (DAY) 
+
+MATCH flight= (:Airport { name: 'LAX' })-[*]->(:Airport { name: 'DAY' })
+WITH flight, reduce(totalPrice = 0, flight IN relationships(flight) | totalPrice + flight.price) AS totalPrice
+RETURN flight, totalPrice ORDER BY totalPrice ASC
+
+9.Uszereguj linie lotnicze według ilości miast, pomiędzy którymi oferują połączenia (unikalnych miast biorących udział w relacjach :ORIGIN i :DESTINATION węzłów typu Flight obsługiwanych przez daną linię) 
+
+match (airport:Airport)-[:ORIGIN|:DESTINATION]-(flight:Flight)
+return flight.airline as airline,count(distinct airport) as cities order by cities ASC
+
+10.Znajdź najtańszą trasę łączącą 3 różne porty lotnicze
+
+MATCH flight = (a1:Airport)<-[r1:ORIGIN]-(f1:Flight)-[r2:DESTINATION]->(a2:Airport)<-[r3:ORIGIN]-(f2:Flight)-[r4:DESTINATION]->(a3:Airport)
+WHERE not(a1=a2) AND not(a1=a3) AND not(a2=a3)
+WITH flight, REDUCE(acc = 0, n IN [x IN NODES(flight) WHERE 'Flight' IN LABELS(x)] | acc + [(n)<-[:ASSIGN]-(ticket {class: 'economy'}) | ticket.price][0]) as price
+RETURN flight, price
+ORDER BY price asc LIMIT 1
