@@ -1,0 +1,16 @@
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8+xkWvpdzWaIFEUpkyWNlyOYSusOXBQA=
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s25752>; rel="up"
+Last-Modified: Mon, 06 Jun 2022 05:19:39 GMT
+ETag: "kUMwQJDYI1QDHhzhw4U2s"
+Date: Mon, 06 Jun 2022 05:19:58 GMT
+Content-Type: application/json
+Content-Length: 76
+
+{
+  "name": "Sklep u Adama",
+  "location": "Warszawa",
+  "isClosed": false
+}

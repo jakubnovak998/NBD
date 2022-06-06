@@ -1,0 +1,17 @@
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8+xkWvpdzKl8JEUpkzGNlSGQRvMOXBQA=
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s25752>; rel="up"
+Last-Modified: Sun, 05 Jun 2022 10:41:37 GMT
+ETag: "4QUJcuR9Gk6FLUiHhhT0Jo"
+Date: Sun, 05 Jun 2022 10:42:27 GMT
+Content-Type: application/json
+Content-Length: 104
+
+{
+  "name": "Sklep Slonecznik",
+  "location": "Szczecin",
+  "isClosed": false
+  "numberOfProducts": 14
+}

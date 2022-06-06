@@ -1,0 +1,91 @@
+1.	Umieść w bazie (nazwa bucketa ma być Twoim numerem indeksu poprzedzonym literą „s”) 5 wartości, gdzie każda z nich ma być dokumentem json mającym 4 pola co najmniej dwóch różnych typów. 
+
+
+curl -i -XPOST -H "Content-Type: application/json" -d '{
+  "name": "Sklep u Adama",
+  "location": "Warszawa",
+  "isClosed": false
+  "numberOfProducts": 20
+}' http://localhost:8098/buckets/s25752/keys/uadama
+
+curl -i -XPOST -H "Content-Type: application/json" -d '{
+  "name": "Sklep u Pawla",
+  "location": "Lodz",
+  "isClosed": false
+  "numberOfProducts": 50
+}' http://localhost:8098/buckets/s25752/keys/upawla
+
+curl -i -XPOST -H "Content-Type: application/json" -d '{
+  "name": "Sklep u Michala",
+  "location": "Lodz",
+  "isClosed": true
+  "numberOfProducts": 60
+}' http://localhost:8098/buckets/s25752/keys/umichala
+
+curl -i -XPOST -H "Content-Type: application/json" -d '{
+  "name": "Sklep Agrest",
+  "location": "Lodz",
+  "isClosed": true
+  "numberOfProducts": 14
+}' http://localhost:8098/buckets/s25752/keys/agrest
+
+curl -i -XPOST -H "Content-Type: application/json" -d '{
+  "name": "Sklep Slonecznik",
+  "location": "Szczecin",
+  "isClosed": false
+  "numberOfProducts": 14
+}' http://localhost:8098/buckets/s25752/keys/slonecznik
+
+2.	Pobierz z bazy jedną z dodanych przez Ciebie wartości. 
+
+curl -i http://localhost:8098/buckets/s25752/keys/slonecznik
+
+3.	Zmodyfikuj jedną z wartości – dodając dodatkowe pole do dokumentu. 
+
+curl -i -XPUT -H "Content-Type: application/json" -d '{
+  "name": "Sklep Slonecznik",
+  "location": "Szczecin",
+  "isClosed": false,
+  "numberOfProducts": 14,
+  "opinion": "good"
+}' http://localhost:8098/buckets/s25752/keys/slonecznik?returnbody=true
+
+4.	Zmodyfikuj jedną z wartości – usuwając jedną pole z wybranego dokumentu. 
+
+curl -i -XPUT -H "Content-Type: application/json" -d '{
+  "name": "Sklep u Adama",
+  "location": "Warszawa",
+  "isClosed": false
+}' http://localhost:8098/buckets/s25752/keys/uadama
+
+5.	Zmodyfikuj jedną z wartości – zmieniając wartość jednego z pól. 
+
+curl -i -XPUT -H "Content-Type: application/json" -d '{
+  "name": "Sklep u Adama",
+  "location": "Warszawa",
+  "isClosed": true
+}' http://localhost:8098/buckets/s25752/keys/uadama
+ 
+6.	Usuń jeden z dokumentów z bazy. 
+
+curl -i -XDELETE http://localhost:8098/buckets/s25752/keys/uadama
+
+7.	Spróbuj pobrać z bazy wartość, która nie istnieje w tej bazie. 
+
+curl -i http://localhost:8098/buckets/s25752/keys/uadama
+
+8.	Dodaj do bazy 1 dokument json (zawierający 1 pole), ale nie specyfikuj klucza. 
+
+curl -i -XPOST -H "Content-Type: application/json" -d '{
+  "name": "SUPER SKLEP"
+}' http://localhost:8098/buckets/s25752/keys?returnbody=true
+
+
+9.	Pobierz z bazy element z zadania 8. 
+
+ curl -i http://localhost:8098/buckets/s25752/keys?keys=true
+curl -i http://localhost:8098/buckets/s25752/keys/a9FgXpsgOz1kXIuzva8bbFDul5c
+
+10.	Usuń z bazy element z zadania 8. 
+
+curl -i -XDELETE http://localhost:8098/buckets/s25752/keys/a9FgXpsgOz1kXIuzva8bbFDul5c

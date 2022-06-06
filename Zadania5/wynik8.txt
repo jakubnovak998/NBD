@@ -1,0 +1,15 @@
+HTTP/1.1 201 Created
+X-Riak-Vclock: a85hYGBgzGDKBVI8+xkWvpdz5RWFCCUy5rEy8PAL3eHLAgA=
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Location: /buckets/s25752/keys/a9FgXpsgOz1kXIuzva8bbFDul5c
+Link: </buckets/s25752>; rel="up"
+Last-Modified: Mon, 06 Jun 2022 05:39:24 GMT
+ETag: "1PEeHoH4QO3zwigOqqnR4W"
+Date: Mon, 06 Jun 2022 05:39:24 GMT
+Content-Type: application/json
+Content-Length: 27
+
+{
+  "name": "SUPER SKLEP"
+}
