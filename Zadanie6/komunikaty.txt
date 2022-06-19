@@ -1,0 +1,6 @@
+Dodawanie Response: {location: {namespace: {type: default, bucket: s25752}, key: rowerowy}, values: []}
+Czytanie response: {"name":"rowerowy", "location":"Lodz", "isClosed":false, "numberOfProducts":15}
+Modyfikacja Response: {location: {namespace: {type: default, bucket: s25752}, key: rowerowy}, values: []}
+Czytanie response: {"name":"rowerowy_nowy", "location":"Warszawa", "isClosed":true, "numberOfProducts":30}
+Usuwanie
+Nie znaleziono pliku
